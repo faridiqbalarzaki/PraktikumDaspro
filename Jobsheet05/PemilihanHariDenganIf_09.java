@@ -1,4 +1,5 @@
- import java.util.Scanner;  
+package Jobsheet05;
+import java.util.Scanner;  
 public class PemilihanHariDenganIf_09 {
  
     public static void main(String[] args) {
