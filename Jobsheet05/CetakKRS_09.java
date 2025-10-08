@@ -13,7 +13,9 @@ public class CetakKRS_09 {
             System.out.println("pembayaran UKT terverifikasi");
             System.out.println("Silahkan cetak KRS dan minta tanda tangan DPA");
 
-        }
+     }else{
+        System.out.print("Registrasi ditolak. Silakan lunasi UKT terlebih dahulu");
+     }
         
     }
 }
