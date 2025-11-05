@@ -7,9 +7,11 @@ public class NilaiKelompok08 {
 
         Scanner sc = new Scanner(System.in);
 
-        int i = 1;
         double nilai, totalNilai, rataNilai;
+        double rataTertinggi = 0;
+        int kelompokTertinggi = 0;
 
+        int i = 1;
         while (i <= 6) {
             System.out.println("Kelompok " + i);
             totalNilai = 0;
@@ -21,11 +23,18 @@ public class NilaiKelompok08 {
             }
 
             rataNilai = totalNilai / 5;
-
             System.out.println("Rata-rata: " + rataNilai);
+
+            if (rataNilai > rataTertinggi) {
+                rataTertinggi = rataNilai;
+                kelompokTertinggi = i;
+            }
 
             i++;
         }
+
+        System.out.println("\nKelompok dengan rata-rata tertinggi adalah Kelompok " + 
+                           kelompokTertinggi + " dengan nilai " + rataTertinggi);
 
         sc.close();
     }
