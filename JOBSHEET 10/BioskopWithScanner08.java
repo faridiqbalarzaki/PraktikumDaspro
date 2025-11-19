@@ -24,10 +24,20 @@ public class BioskopWithScanner08 {
 
                 System.out.print("Masukkan baris (1-4): ");
                 int baris = sc.nextInt();
+                if (baris < 1 || baris > penonton.length) {
+                    System.out.println("Baris tidak tersedia! (Harus 1 - 4)");
+                    continue;
+                }
 
                 System.out.print("Masukkan kolom (1-2): ");
                 int kolom = sc.nextInt();
                 sc.nextLine();
+
+                if (kolom < 1 || kolom > penonton[0].length) {
+                    System.out.println("Kolom tidak tersedia! (Harus 1 - 2)");
+                    continue;
+                }
+
                 penonton[baris - 1][kolom - 1] = nama;
 
                 System.out.println("Data berhasil dimasukkan!");
