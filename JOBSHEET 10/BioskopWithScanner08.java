@@ -37,9 +37,13 @@ public class BioskopWithScanner08 {
                     System.out.println("Kolom tidak tersedia! (Harus 1 - 2)");
                     continue;
                 }
+                if (penonton[baris - 1][kolom - 1] != null) {
+                    System.out.println("Kursi ini sudah terisi oleh: " + penonton[baris - 1][kolom - 1]);
+                    System.out.println("Silakan pilih baris dan kolom lain!");
+                    continue;
+                }
 
                 penonton[baris - 1][kolom - 1] = nama;
-
                 System.out.println("Data berhasil dimasukkan!");
 
             } else if (menu == 2) {
