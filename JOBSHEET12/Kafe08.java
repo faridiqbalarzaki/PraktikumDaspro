@@ -1,57 +1,51 @@
 import java.util.Scanner;
+
 public class Kafe08 {
 
-    Scanner sc=new Scanner(System.in);
-    public static int hitungTotalHarga (int pilihanMenu, int banyakItem){
-        int[] hargaItems = {1500, 20000, 22000, 12000, 10000, 18000};
+    Scanner sc = new Scanner(System.in);
 
-        int hargaTotal = hargaItems[pilihanMenu - 1] * banyakItem;
-        return hargaTotal;
-    }
-    
-    public static void Menu(String namaPelanggan, boolean isMember, String kodePromo) {
+    public static int hitungTotalHarga(int pilihanMenu, int banyakItem, String kodePromo) {
 
-        System.out.println("Selamat datang, " + namaPelanggan + "!");
+        int[] hargaItems = { 15000, 20000, 22000, 12000, 10000, 18000 };
 
-        if (isMember) {
-            System.out.println("Anda adalah member, dapatkan diskon 10% untuk setiap pembelian!");
-        }
-        System.out.println("Kode Promo: " + kodePromo);
+        int totalHarga = hargaItems[pilihanMenu - 1] * banyakItem;
 
-        if (kodePromo.equals("DISKON50")) {
-            System.out.println("Anda mendapatkan diskon 50%!");
-        } else if (kodePromo.equals("DISKON30")) {
-            System.out.println("Anda mendapatkan diskon 30%!");
+        System.out.println("Total sebelum diskon: Rp " + totalHarga);
+        if (kodePromo.equalsIgnoreCase("DISKON50")) {
+            System.out.println("Kode promo valid! Diskon 50% diterapkan!");
+            totalHarga *= 0.5;
+        } else if (kodePromo.equalsIgnoreCase("DISKON30")) {
+            System.out.println("Kode promo valid! Diskon 30% diterapkan!");
+            totalHarga *= 0.7;
         } else {
-            System.out.println("Kode promo invalid.");
+            System.out.println("Kode promo invalid, tidak ada diskon.");
         }
 
-        System.out.println();
-        System.out.println("===== MENU RESTO KAFE =====");
-        System.out.println("1. Kopi Hitam – Rp 15,000");
-        System.out.println("2. Cappucino – Rp 20,000");
-        System.out.println("3. Latte – Rp 22,000");
-        System.out.println("4. Teh Tarik – Rp 12,000");
-        System.out.println("5. Roti Bakar – Rp 10,000");
-        System.out.println("6. Mie Goreng – Rp 18,000");
-        System.out.println("===========================");
-        System.out.println("Silakan pilih menu yang Anda inginkan.");
+        return totalHarga;
     }
-public static void main(String[] args) {
+
+    public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
+        System.out.print("Masukkan kode promo (DISKON50/DISKON30): ");
+        String kodePromo = sc.nextLine();
 
-        Menu("Budi", true, "DISKON30");
+        System.out.println("\n===== MENU RESTO KAFE =====");
+        System.out.println("1. Kopi Hitam - Rp 15.000");
+        System.out.println("2. Cappucino - Rp 20.000");
+        System.out.println("3. Latte - Rp 22.000");
+        System.out.println("4. Teh Tarik - Rp 12.000");
+        System.out.println("5. Roti Bakar - Rp 10.000");
+        System.out.println("6. Mie Goreng - Rp 18.000");
+        System.out.println("===========================\n");
 
-        System.out.print("Masukkan nomor menu yang ingin Anda pesan: ");
+        System.out.print("Masukkan nomor menu: ");
         int pilihanMenu = sc.nextInt();
-        System.out.print("Masukkan jumlah item yang ingin dipesan: ");
-        int banyakItem = sc.nextInt();
-        
-        int totalBayar = hitungTotalHarga(pilihanMenu, banyakItem);
 
-        System.out.println("Total harga untuk pesanan Anda: Rp " + totalBayar);
+        System.out.print("Masukkan jumlah item: ");
+        int banyakItem = sc.nextInt();
+        int totalBayar = hitungTotalHarga(pilihanMenu, banyakItem, kodePromo);
+
+        System.out.println("\nTotal akhir yang harus dibayar: Rp " + totalBayar);
     }
-    
-    
 }
